@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- 1.数据库的配置 -->
+		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql:///db_hibernate-2</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">15773272279wt..A</property>
+		<!-- 2.hibernate配置 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<!-- 3.c3p0数据库连接池配置 -->
+		<!--开启c3p0连接池  -->
+		<property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
+		<!-- 当连接不够用时一次申请多少连接-->
+		<property name="hibernate.c3p0.acquire_increment">20</property>
+		<!-- 当连接超时时,数据库连接池不会自己移除,而是由另一个线程移除，这个线程不会一直监测,设置2000秒扫描一次 -->
+		<property name="hibernate.c3p0.idle_test_period">2000</property>
+		<property name="hibernate.c3p0.max_size">20</property>
+		<!-- 最大缓存多少个Statement对象 -->
+		<property name="hibernate.c3p0.max_statements">10</property>
+		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.timeout">2000</property>
+		<!-- 4.映射文件配置 -->
+		<mapping resource="com/wantao/bean/User.hbm.xml" />
+		<mapping resource="com/wantao/bean/Student.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>
